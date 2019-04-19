@@ -2,29 +2,29 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class CreateWall : MonoBehaviour {
+public class BuildingFactory : MonoBehaviour {
 
 	public Inventory inventory;
-	public GameObject wallPrefab;
+	public GameObject buildingPrefab;
 	private bool _nextClickBuildsWall = false;
 
-	public void nextClickBuildsWall() {
+	public void nextClickBuildsPrefab() {
 		_nextClickBuildsWall = true;
 	}
 
 	void Update ()
 	{
 		if (_nextClickBuildsWall && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp (0)) {
-			createWall ();
+			createBuildingUnderMouse ();
 			inventory.wood--;
 			_nextClickBuildsWall = false;
 		}
 	}
 
-	public void createWall() {
+	private void createBuildingUnderMouse() {
 		Vector3 clickPositionOnFloor = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		clickPositionOnFloor.z = 0;
-		GameObject wall = (GameObject)Instantiate (wallPrefab);
+		GameObject wall = (GameObject)Instantiate (buildingPrefab);
 		wall.transform.position = clickPositionOnFloor;
 	}
 }
