@@ -216,6 +216,7 @@ GameObject:
   - 222: {fileID: 395988383}
   - 114: {fileID: 395988382}
   - 114: {fileID: 395988381}
+  - 114: {fileID: 395988384}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -327,6 +328,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 395988379}
+--- !u!114 &395988384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395988379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f803ef0efe1b34e950cf971d17b66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 824590424}
 --- !u!1 &438376533
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea67aa6cc1b2b244089c600e2adf8d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 824590424}
   wallPrefab: {fileID: 111210, guid: 6c31c7dd8b171ff45b1e016417bc5707, type: 2}
 --- !u!4 &1856064681
 Transform:

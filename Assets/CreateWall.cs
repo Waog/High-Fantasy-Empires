@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class CreateWall : MonoBehaviour {
 
+	public Inventory inventory;
 	public GameObject wallPrefab;
 	private bool _nextClickBuildsWall = false;
 
@@ -15,6 +16,7 @@ public class CreateWall : MonoBehaviour {
 	{
 		if (_nextClickBuildsWall && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp (0)) {
 			createWall ();
+			inventory.wood--;
 			_nextClickBuildsWall = false;
 		}
 	}
