@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class JumpToClick : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class JumpToClick : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetMouseButtonUp (0)) {
+		if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp (0)) {
 		
 			Vector3 clickPositionOnFloor = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			clickPositionOnFloor.z = 0;
