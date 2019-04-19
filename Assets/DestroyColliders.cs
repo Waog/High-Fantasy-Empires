@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DestroyColliders : MonoBehaviour {
 
+	public Inventory inventory;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,6 +16,7 @@ public class DestroyColliders : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
+		inventory.wood++;
 		Destroy (collision.gameObject);
 	}
 }
