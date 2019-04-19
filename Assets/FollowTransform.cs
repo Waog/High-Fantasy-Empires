@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowTargetIndicator : MonoBehaviour {
+public class FollowTransform : MonoBehaviour {
 
-	public Transform target;
+	protected Transform target;
 	public float speed = 1f;
 
 

@@ -9,9 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 475964}
   - 212: {fileID: 21267064}
-  - 114: {fileID: 11440184}
   - 50: {fileID: 5030224}
   - 61: {fileID: 6158534}
+  - 114: {fileID: 11425284}
+  - 114: {fileID: 11458938}
+  - 114: {fileID: 11469952}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -63,7 +65,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11440184
+--- !u!114 &11425284
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -71,11 +73,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 145424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f1c353c8ca22c4d95498cf47444090, type: 3}
+  m_Script: {fileID: 11500000, guid: 769f1acb44f9abf4e9795771dca18b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 1
+--- !u!114 &11458938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f4c09889d1e9a479827b4af44501cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c58b183e8c1de40a52c7f615fbde9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21267064
 SpriteRenderer:
   m_ObjectHideFlags: 1
