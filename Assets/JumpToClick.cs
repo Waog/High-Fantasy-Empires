@@ -15,9 +15,7 @@ public class JumpToClick : MonoBehaviour {
 		
 			Vector3 clickPositionOnFloor = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			clickPositionOnFloor.z = 0;
-			//movingGoalIndicator = (GameObject)Instantiate (targetIndicator, clickPositionOnFloor, Quaternion.identity);
 			transform.position = clickPositionOnFloor;
-			//transform.position.y = clickPositionOnFloor.y;
 		}
 	}
 }
