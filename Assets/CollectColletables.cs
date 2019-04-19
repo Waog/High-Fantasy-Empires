@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyColliders : MonoBehaviour {
+public class CollectColletables : MonoBehaviour {
 
 	public Inventory inventory;
 

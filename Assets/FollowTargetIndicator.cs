@@ -14,10 +14,12 @@ public class FollowTargetIndicator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 direction = target.position - transform.position;
-		Vector3 normalizedDirection = direction.normalized;
-		Vector3 intermediateTargetDirection = Time.deltaTime * normalizedDirection * speed;
-		Vector3 intermediateTargetDirectionClamped = Vector3.ClampMagnitude (intermediateTargetDirection, direction.magnitude);
-		transform.position += intermediateTargetDirectionClamped;
+		if (target) {
+			Vector3 direction = target.position - transform.position;
+			Vector3 normalizedDirection = direction.normalized;
+			Vector3 intermediateTargetDirection = Time.deltaTime * normalizedDirection * speed;
+			Vector3 intermediateTargetDirectionClamped = Vector3.ClampMagnitude (intermediateTargetDirection, direction.magnitude);
+			transform.position += intermediateTargetDirectionClamped;
+		}
 	}
 }
