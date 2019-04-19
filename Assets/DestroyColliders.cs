@@ -16,7 +16,9 @@ public class DestroyColliders : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
-		inventory.wood++;
-		Destroy (collision.gameObject);
+		if (collision.gameObject.tag == "Collectable") {
+			inventory.wood++;
+			Destroy (collision.gameObject);
+		}
 	}
 }
