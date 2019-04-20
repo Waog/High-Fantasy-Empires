@@ -4,65 +4,98 @@ using UnityEngine.EventSystems;
 
 public class BuildingFactory : MonoBehaviour
 {
+    enum State { Idle, BuildingSelected, Drawing }
 
     public Inventory inventory;
     public GameObject buildingPrefab;
-    private bool _nextClickPlacesBuilding = false;
-    private bool startedBuilding = false;
+    private State state = State.Idle;
     public GameObject grid;
     public GameObject blueprint;
     Vector3 startPos;
-    Vector3 endPos;
 
     public void nextClickBuildsPrefab()
     {
-        _nextClickPlacesBuilding = true;
-        grid.SetActive(_nextClickPlacesBuilding);
+        switchToBuildingSelectedState();
     }
 
     void Update()
     {
-        if (startedBuilding)
+        if (state == State.Drawing)
         {
-            endPos = getMousePosInGrid();
-            float length = (endPos - startPos).magnitude;
-            Vector3 direction = (endPos - startPos).normalized;
-            Transform bluePrints = transform.FindChild("bluePrints");
-            foreach (Transform oldBluePrint in bluePrints)
-            {
-                GameObject.Destroy(oldBluePrint.gameObject);
-                oldBluePrint.name = "toBeDestroyed";
-            }
-            Vector3 lastPlacement = new Vector3(0, 0, -1); // aka undefined;
-            for (int i = 0; i <= length; i++)
-            {
-                Vector3 nextPos = startPos + i * direction;
-                nextPos.x = Mathf.RoundToInt(nextPos.x);
-                nextPos.y = Mathf.RoundToInt(nextPos.y);
-                if (lastPlacement != nextPos)
-                {
-                    GameObject aBlueprint = (GameObject)Instantiate(blueprint);
-                    aBlueprint.transform.SetParent(bluePrints);
-                    aBlueprint.transform.position = nextPos;
-                    lastPlacement = nextPos;
-                }
-            }
+            destroyPreviousBlueprints();
+            createNewBlueprints();
         }
 
 
-        if (_nextClickPlacesBuilding && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0))
+        if (isDrawingConditionMet())
         {
-            _nextClickPlacesBuilding = false;
-            startedBuilding = true;
+            switchToDrawingState();
             startPos = getMousePosInGrid();
-            grid.SetActive(true);
         }
-        else if (startedBuilding && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp(0))
+        else if (isIdleConditionMet())
         {
-            startedBuilding = false;
-            grid.SetActive(false);
+            switchToIdleState();
             replaceAllBlueprintsByRealBuildings();
         }
+    }
+
+    private void createNewBlueprints()
+    {
+        Transform bluePrints = transform.FindChild("bluePrints");
+        Vector3 endPos = getMousePosInGrid();
+        float length = (endPos - startPos).magnitude;
+        Vector3 direction = (endPos - startPos).normalized;
+        Vector3 lastPlacement = new Vector3(0, 0, -1); // aka undefined;
+        for (int i = 0; i <= length; i++)
+        {
+            Vector3 nextPos = startPos + i * direction;
+            nextPos.x = Mathf.RoundToInt(nextPos.x);
+            nextPos.y = Mathf.RoundToInt(nextPos.y);
+            if (lastPlacement != nextPos)
+            {
+                GameObject aBlueprint = (GameObject)Instantiate(blueprint);
+                aBlueprint.transform.SetParent(bluePrints);
+                aBlueprint.transform.position = nextPos;
+                lastPlacement = nextPos;
+            }
+        }
+    }
+
+    private void destroyPreviousBlueprints()
+    {
+        Transform bluePrints = transform.FindChild("bluePrints");
+        foreach (Transform oldBluePrint in bluePrints)
+        {
+            GameObject.Destroy(oldBluePrint.gameObject);
+            oldBluePrint.name = "toBeDestroyed";
+        }
+    }
+
+    private void switchToBuildingSelectedState()
+    {
+        state = State.BuildingSelected;
+        grid.SetActive(true);
+    }
+
+    private void switchToDrawingState()
+    {
+        state = State.Drawing;
+    }
+
+    private void switchToIdleState()
+    {
+        state = State.Idle;
+        grid.SetActive(false);
+    }
+
+    private bool isDrawingConditionMet()
+    {
+        return state == State.BuildingSelected && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0);
+    }
+
+    private bool isIdleConditionMet()
+    {
+        return state == State.Drawing && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp(0);
     }
 
     private Vector3 getMousePosInGrid()
