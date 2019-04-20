@@ -187,10 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea67aa6cc1b2b244089c600e2adf8d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 824590424}
+  blueprintPrefab: {fileID: 147818, guid: 3bc72089a8824584da51c34aa624cbf9, type: 2}
   buildingPrefab: {fileID: 175762, guid: 0c3bdaccfcabbd542bd84f0d19010d0f, type: 2}
   grid: {fileID: 1942179937}
-  blueprint: {fileID: 147818, guid: 3bc72089a8824584da51c34aa624cbf9, type: 2}
+  inventory: {fileID: 824590424}
 --- !u!4 &170359401
 Transform:
   m_ObjectHideFlags: 0
@@ -201,8 +201,7 @@ Transform:
   m_LocalPosition: {x: 195, y: 116.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 688379812}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!1 &179341013
@@ -457,62 +456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 824590424}
---- !u!1 &467115377
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 467115378}
-  m_Layer: 0
-  m_Name: bluePrints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &467115378
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 467115377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1856064681}
-  m_RootOrder: 0
---- !u!1 &688379811
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 688379812}
-  m_Layer: 0
-  m_Name: bluePrints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &688379812
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 688379811}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 170359401}
-  m_RootOrder: 0
 --- !u!1 &824590423
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &955277022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,10 +913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea67aa6cc1b2b244089c600e2adf8d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 824590424}
+  blueprintPrefab: {fileID: 123488, guid: 7331e09debcccbf48a6674fed1314c1d, type: 2}
   buildingPrefab: {fileID: 111210, guid: 6c31c7dd8b171ff45b1e016417bc5707, type: 2}
   grid: {fileID: 1942179937}
-  blueprint: {fileID: 123488, guid: 7331e09debcccbf48a6674fed1314c1d, type: 2}
+  inventory: {fileID: 824590424}
 --- !u!4 &1856064681
 Transform:
   m_ObjectHideFlags: 0
@@ -984,8 +927,7 @@ Transform:
   m_LocalPosition: {x: 195, y: 116.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 467115378}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!1 &1942179937

@@ -6,68 +6,71 @@ public class BuildingFactory : MonoBehaviour
 {
     enum State { Idle, BuildingSelected, Drawing }
 
-    public Inventory inventory;
+    public GameObject blueprintPrefab;
     public GameObject buildingPrefab;
-    private State state = State.Idle;
     public GameObject grid;
-    public GameObject blueprint;
-    Vector3 startPos;
+    public Inventory inventory;
+
+    private Vector3 startPos;
+    private State state = State.Idle;
+    private Transform blueprintsParent;
 
     public void nextClickBuildsPrefab()
     {
         switchToBuildingSelectedState();
     }
 
+    void Start()
+    {
+        blueprintsParent = new GameObject("bluePrints").transform;
+        blueprintsParent.SetParent(transform);
+    }
+
     void Update()
     {
-        if (state == State.Drawing)
-        {
-            destroyPreviousBlueprints();
-            createNewBlueprints();
-        }
-
-
         if (isDrawingConditionMet())
         {
-            switchToDrawingState();
             startPos = getMousePosInGrid();
+            switchToDrawingState();
         }
         else if (isIdleConditionMet())
         {
-            switchToIdleState();
             replaceAllBlueprintsByRealBuildings();
+            switchToIdleState();
+        }
+        else if (state == State.Drawing)
+        {
+            destroyBlueprints();
+            createNewBlueprints();
         }
     }
 
     private void createNewBlueprints()
     {
-        Transform bluePrints = transform.FindChild("bluePrints");
         Vector3 endPos = getMousePosInGrid();
-        float length = (endPos - startPos).magnitude;
+        float selectedLength = (endPos - startPos).magnitude;
         Vector3 direction = (endPos - startPos).normalized;
         Vector3 lastPlacement = new Vector3(0, 0, -1); // aka undefined;
-        for (int i = 0; i <= length; i++)
+        for (int i = 0; i < selectedLength + 0.5; i++)
         {
             Vector3 nextPos = startPos + i * direction;
             nextPos.x = Mathf.RoundToInt(nextPos.x);
             nextPos.y = Mathf.RoundToInt(nextPos.y);
             if (lastPlacement != nextPos)
             {
-                GameObject aBlueprint = (GameObject)Instantiate(blueprint);
-                aBlueprint.transform.SetParent(bluePrints);
+                GameObject aBlueprint = (GameObject)Instantiate(blueprintPrefab);
+                aBlueprint.transform.SetParent(blueprintsParent);
                 aBlueprint.transform.position = nextPos;
                 lastPlacement = nextPos;
             }
         }
     }
 
-    private void destroyPreviousBlueprints()
+    private void destroyBlueprints()
     {
-        Transform bluePrints = transform.FindChild("bluePrints");
-        foreach (Transform oldBluePrint in bluePrints)
+        foreach (Transform blueprint in blueprintsParent)
         {
-            GameObject.Destroy(oldBluePrint.gameObject);
-            oldBluePrint.name = "toBeDestroyed";
+            GameObject.Destroy(blueprint.gameObject);
         }
     }
 
@@ -109,16 +112,12 @@ public class BuildingFactory : MonoBehaviour
 
     private void replaceAllBlueprintsByRealBuildings()
     {
-        Transform bluePrints = transform.FindChild("bluePrints");
-        foreach (Transform oldBluePrint in bluePrints)
+        foreach (Transform blueprint in blueprintsParent)
         {
-            if (oldBluePrint.name != "toBeDestroyed")
-            {
-                GameObject wall = (GameObject)Instantiate(buildingPrefab);
-                wall.transform.position = oldBluePrint.transform.position;
-                GameObject.Destroy(oldBluePrint.gameObject);
-                inventory.wood--;
-            }
+            GameObject building = (GameObject)Instantiate(buildingPrefab);
+            building.transform.position = blueprint.transform.position;
+            GameObject.Destroy(blueprint.gameObject);
+            inventory.wood--;
         }
     }
 }
