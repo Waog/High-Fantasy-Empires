@@ -17,7 +17,7 @@ public class CollectColletables : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.tag == "Collectable") {
-			inventory.wood++;
+			inventory.wood += 4;
 			Destroy (collision.gameObject);
 		}
 	}

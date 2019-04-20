@@ -13,7 +13,9 @@ public class PrefabGenerator : MonoBehaviour {
 			GameObject obj = (GameObject)Instantiate (prefab);
 			float x = Random.Range (area.transform.position.x - area.transform.localScale.x / 2, area.transform.position.x + area.transform.localScale.x / 2);
 			float y = Random.Range (area.transform.position.y - area.transform.localScale.y / 2, area.transform.position.y + area.transform.localScale.y / 2);
-			obj.transform.position = new Vector3(x, y, 0);
+			int roundedX = Mathf.RoundToInt (x);
+			int roundedY = Mathf.RoundToInt (y);
+			obj.transform.position = new Vector3(roundedX, roundedY, 0);
 		}
 	}
 	

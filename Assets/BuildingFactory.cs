@@ -6,24 +6,29 @@ public class BuildingFactory : MonoBehaviour {
 
 	public Inventory inventory;
 	public GameObject buildingPrefab;
-	private bool _nextClickBuildsWall = false;
+	private bool _nextClickPlacesBuilding = false;
+	public GameObject grid;
 
 	public void nextClickBuildsPrefab() {
-		_nextClickBuildsWall = true;
+		_nextClickPlacesBuilding = true;
+		grid.SetActive(_nextClickPlacesBuilding);
 	}
 
 	void Update ()
 	{
-		if (_nextClickBuildsWall && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp (0)) {
+		if (_nextClickPlacesBuilding && !EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp (0)) {
 			createBuildingUnderMouse ();
 			inventory.wood--;
-			_nextClickBuildsWall = false;
+			_nextClickPlacesBuilding = false;
+			grid.SetActive(_nextClickPlacesBuilding);
 		}
 	}
 
 	private void createBuildingUnderMouse() {
 		Vector3 clickPositionOnFloor = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		clickPositionOnFloor.z = 0;
+		clickPositionOnFloor.x = Mathf.RoundToInt (clickPositionOnFloor.x);
+		clickPositionOnFloor.y = Mathf.RoundToInt (clickPositionOnFloor.y);
 		GameObject wall = (GameObject)Instantiate (buildingPrefab);
 		wall.transform.position = clickPositionOnFloor;
 	}
