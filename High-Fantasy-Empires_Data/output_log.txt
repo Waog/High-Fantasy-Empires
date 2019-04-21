@@ -1,0 +1,39 @@
+Initialize engine version: 5.3.8p2 (702ec25c6a03)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R5 M230 (ID=0x666f)
+    Vendor:   ATI
+    VRAM:     2036 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.160 seconds
+Platform assembly: C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\dev\git\High-Fantasy-Empires\High-Fantasy-Empires_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.685102 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.433641 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 394.
+Total: 1.105914 ms (FindLiveObjects: 0.064148 ms CreateObjectMapping: 0.035067 ms MarkObjects: 0.993441 ms  DeleteObjects: 0.012401 ms)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.882957 ms
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 261.
+Total: 0.437918 ms (FindLiveObjects: 0.017533 ms CreateObjectMapping: 0.013257 ms MarkObjects: 0.354097 ms  DeleteObjects: 0.052601 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 3b8 -> priority: 1 

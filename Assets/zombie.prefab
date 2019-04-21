@@ -11,9 +11,12 @@ GameObject:
   - 212: {fileID: 21267064}
   - 50: {fileID: 5030224}
   - 61: {fileID: 6158534}
-  - 114: {fileID: 11425284}
   - 114: {fileID: 11458938}
   - 114: {fileID: 11469952}
+  - 114: {fileID: 11436038}
+  - 114: {fileID: 11457728}
+  - 114: {fileID: 11432276}
+  - 114: {fileID: 11468350}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -65,7 +68,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.6}
---- !u!114 &11425284
+--- !u!114 &11432276
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -73,10 +76,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 145424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769f1acb44f9abf4e9795771dca18b89, type: 3}
+  m_Script: {fileID: 11500000, guid: 091f99ec4ca9bf940872bc398c509ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  target: {fileID: 0}
+--- !u!114 &11436038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 117
+    i1: 169
+    i2: 165
+    i3: 96
+    i4: 51
+    i5: 86
+    i6: 89
+    i7: 20
+    i8: 187
+    i9: 92
+    i10: 227
+    i11: 222
+    i12: 125
+    i13: 89
+    i14: 104
+    i15: 46
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &11457728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf28834af9f3d94fa8446913eb7f9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11458938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,6 +135,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f4c09889d1e9a479827b4af44501cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11468350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &11469952
 MonoBehaviour:
   m_ObjectHideFlags: 1

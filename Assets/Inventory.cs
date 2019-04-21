@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Inventory : MonoBehaviour {
-	public int wood;
+public class Inventory : NetworkBehaviour
+{
+    [SyncVar]
+    public int wood;
 }

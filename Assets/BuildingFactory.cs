@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 
 public class BuildingFactory : MonoBehaviour
 {
@@ -114,10 +115,33 @@ public class BuildingFactory : MonoBehaviour
     {
         foreach (Transform blueprint in blueprintsParent)
         {
-            GameObject building = (GameObject)Instantiate(buildingPrefab);
-            building.transform.position = blueprint.transform.position;
+            if (buildingPrefab.name == "wall")
+            {
+                getLocalPlayer().GetComponent<BuildWalls>().CmdBuildWall(blueprint.transform.position);
+            }
+            else if (buildingPrefab.name == "pit")
+            {
+                getLocalPlayer().GetComponent<BuildWalls>().CmdBuildPit(blueprint.transform.position);
+            }
+            else
+            {
+                throw new System.InvalidOperationException("Unknown Building Type: " + buildingPrefab.name);
+            }
             GameObject.Destroy(blueprint.gameObject);
-            inventory.wood--;
         }
+    }
+
+    private Transform getLocalPlayer()
+    {
+        GameObject[] allKnights = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject knight in allKnights)
+        {
+            Transform targetIndicator = knight.GetComponent<FollowTransform>().target;
+            if (targetIndicator.GetComponent<NetworkIdentity>().isLocalPlayer)
+            {
+                return targetIndicator;
+            }
+        }
+        return null;
     }
 }

@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class FollowObject : FollowTransform {
+public class FollowObject : FollowTransform
+{
 
-	public GameObject targetObj;
+    [SyncVar]
+    public GameObject targetObj;
 
-	// Use this for initialization
-	void Start () {
-		target = targetObj.transform;
-	}
+    void Update()
+    {
+        if (targetObj)
+        {
+            target = targetObj.transform;
+
+        }
+    }
 }
