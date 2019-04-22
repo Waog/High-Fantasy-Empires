@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+// TODO: delete?
 public class FollowObject : FollowTransform
 {
 

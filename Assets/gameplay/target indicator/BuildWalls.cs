@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+// TODO: rename class+file
 public class BuildWalls : NetworkBehaviour
 {
     public GameObject wallPrefab;
