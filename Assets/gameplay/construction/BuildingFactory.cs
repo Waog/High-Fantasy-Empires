@@ -7,11 +7,9 @@ public class BuildingFactory : MonoBehaviour
 {
     enum State { Idle, BuildingSelected, Drawing }
 
-    public GameObject blueprintPrefab;
-    public GameObject buildingPrefab;
     public GameObject grid;
-    public Inventory inventory;
 
+    private GameObject blueprintPrefab;
     private Vector3 startPos;
     private State state = State.Idle;
     private Transform blueprintsParent;
@@ -22,8 +20,9 @@ public class BuildingFactory : MonoBehaviour
         blueprintsParent.SetParent(transform);
     }
 
-    public void nextClickBuildsPrefab()
+    public void nextClickBuildsPrefab(GameObject blueprintPrefab)
     {
+        this.blueprintPrefab = blueprintPrefab;
         switchToBuildingSelectedState();
     }
 
@@ -79,7 +78,7 @@ public class BuildingFactory : MonoBehaviour
     {
         state = State.BuildingSelected;
         grid.SetActive(true);
-        getLocalPlayer().GetComponent<JumpToClick>().ignoreClicks = true;
+        Util.getLocalPlayer().GetComponent<JumpToClick>().ignoreClicks = true;
     }
 
     private void switchToDrawingState()
@@ -91,7 +90,7 @@ public class BuildingFactory : MonoBehaviour
     {
         state = State.Idle;
         grid.SetActive(false);
-        getLocalPlayer().GetComponent<JumpToClick>().ignoreClicks = false;
+        Util.getLocalPlayer().GetComponent<JumpToClick>().ignoreClicks = false;
     }
 
     private bool isDrawingConditionMet()
@@ -117,33 +116,8 @@ public class BuildingFactory : MonoBehaviour
     {
         foreach (Transform blueprint in blueprintsParent)
         {
-            if (buildingPrefab.name == "wall")
-            {
-                getLocalPlayer().GetComponent<BuildWalls>().CmdBuildWall(blueprint.transform.position);
-            }
-            else if (buildingPrefab.name == "pit")
-            {
-                getLocalPlayer().GetComponent<BuildWalls>().CmdBuildPit(blueprint.transform.position);
-            }
-            else
-            {
-                throw new System.InvalidOperationException("Unknown Building Type: " + buildingPrefab.name);
-            }
+            blueprint.GetComponent<OrderBuild>().build();
             GameObject.Destroy(blueprint.gameObject);
         }
-    }
-
-    private Transform getLocalPlayer()
-    {
-        GameObject[] allKnights = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject knight in allKnights)
-        {
-            Transform targetIndicator = knight.GetComponent<FollowTransform>().target;
-            if (targetIndicator.GetComponent<NetworkIdentity>().isLocalPlayer)
-            {
-                return targetIndicator;
-            }
-        }
-        return null;
     }
 }

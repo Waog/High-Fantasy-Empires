@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e09a7a29f48f3d409973a0ed57151bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreClicks: 0
 --- !u!114 &11470052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallPrefab: {fileID: 111210, guid: 6c31c7dd8b171ff45b1e016417bc5707, type: 2}
   pitPrefab: {fileID: 175762, guid: 0c3bdaccfcabbd542bd84f0d19010d0f, type: 2}
+  winPrefab: {fileID: 116020, guid: 2bd28da42b9d3b84caa9049db21c5f8d, type: 2}
 --- !u!114 &11478090
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using System;
 
-// TODO: rename class+file
-public class BuildWalls : NetworkBehaviour
+public class BuildCommands : NetworkBehaviour
 {
     public GameObject wallPrefab;
     public GameObject pitPrefab;
+    public GameObject winPrefab;
 
+    // TODO: remove duplicated code
     [Command]
     public void CmdExecuteTest()
     {
@@ -28,6 +30,12 @@ public class BuildWalls : NetworkBehaviour
 
     }
 
+    [Command]
+    public void CmdBuildWin(Vector3 position)
+    {
+        buildBuilding(winPrefab, position);
+    }
+
     private void buildBuilding(GameObject buildingPrefab, Vector3 position)
     {
         GameObject building = (GameObject)Instantiate(
@@ -37,15 +45,21 @@ public class BuildWalls : NetworkBehaviour
 
         NetworkServer.Spawn(building);
 
+        GameObject followingKnight = getFollowingKnight();
+        Inventory price = buildingPrefab.GetComponent<Inventory>();
+        followingKnight.GetComponent<Inventory>().sub(price);
+    }
+
+    private GameObject getFollowingKnight()
+    {
         GameObject[] allKnights = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject knight in allKnights)
         {
             if (knight.GetComponent<FollowTransform>().target == transform)
             {
-                knight.GetComponent<Inventory>().wood--;
-                break;
+                return knight;
             }
         }
+        return null;
     }
-
 }
