@@ -10,7 +10,8 @@ public class CollectColletables : NetworkBehaviour
         {
             if (collision.gameObject.tag == "Collectable")
             {
-                GetComponent<Inventory>().wood += 4;
+                Inventory yield = collision.gameObject.GetComponent<Inventory>();
+                GetComponent<Inventory>().add(yield);
                 Destroy(collision.gameObject);
             }
         }

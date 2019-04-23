@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wood: 10
+  gems: 2
 --- !u!114 &11440738
 MonoBehaviour:
   m_ObjectHideFlags: 1
