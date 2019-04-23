@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 public class JumpToClick : NetworkBehaviour
 {
 
+    public bool ignoreClicks = false;
+
     // Use this for initialization
     void Start()
     {
@@ -21,7 +23,7 @@ public class JumpToClick : NetworkBehaviour
             return;
         }
 
-        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp(0))
+        if (!EventSystem.current.IsPointerOverGameObject() && !ignoreClicks && Input.GetMouseButtonUp(0))
         {
 
             Vector3 clickPositionOnFloor = Camera.main.ScreenToWorldPoint(Input.mousePosition);

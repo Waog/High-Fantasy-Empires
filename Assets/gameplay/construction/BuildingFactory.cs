@@ -16,15 +16,15 @@ public class BuildingFactory : MonoBehaviour
     private State state = State.Idle;
     private Transform blueprintsParent;
 
-    public void nextClickBuildsPrefab()
-    {
-        switchToBuildingSelectedState();
-    }
-
     void Start()
     {
         blueprintsParent = new GameObject("bluePrints").transform;
         blueprintsParent.SetParent(transform);
+    }
+
+    public void nextClickBuildsPrefab()
+    {
+        switchToBuildingSelectedState();
     }
 
     void Update()
@@ -79,6 +79,7 @@ public class BuildingFactory : MonoBehaviour
     {
         state = State.BuildingSelected;
         grid.SetActive(true);
+        getLocalPlayer().GetComponent<JumpToClick>().ignoreClicks = true;
     }
 
     private void switchToDrawingState()
@@ -90,6 +91,7 @@ public class BuildingFactory : MonoBehaviour
     {
         state = State.Idle;
         grid.SetActive(false);
+        getLocalPlayer().GetComponent<JumpToClick>().ignoreClicks = false;
     }
 
     private bool isDrawingConditionMet()
