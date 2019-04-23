@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class DieInPit : MonoBehaviour {
+public class DieInPit : NetworkBehaviour
+{
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.gameObject.tag.Equals ("Pit")) {
-			Destroy (other.gameObject);
-			Destroy (gameObject);
-		}
-	}
+    public GameObject dropPrefab;
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Pit"))
+        {
+            GameObject drop = (GameObject)Instantiate(dropPrefab, transform.position, Quaternion.identity);
+            NetworkServer.Spawn(drop);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }

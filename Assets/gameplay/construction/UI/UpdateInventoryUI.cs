@@ -14,6 +14,7 @@ public class UpdateInventoryUI : MonoBehaviour
         if (inventory)
         {
             inventoryUI.text = inventory.wood + " Wood";
+            inventoryUI.text += "\n" + inventory.gems + " Gems";
         }
     }
 }
