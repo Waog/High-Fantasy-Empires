@@ -5,14 +5,16 @@ using UnityEngine.UI;
 public class EnableBuild : MonoBehaviour
 {
 
-    public Inventory inventory;
+    public Inventory available;
+    public Inventory price;
+
 
     void Update()
     {
         Button buttonScript = gameObject.GetComponent<Button>();
-        if (inventory)
+        if (available)
         {
-            buttonScript.interactable = inventory.wood > 0;
+            buttonScript.interactable = available.contains(price);
         }
         else
         {

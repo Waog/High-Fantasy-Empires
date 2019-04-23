@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 487076}
   - 212: {fileID: 21200396}
+  - 114: {fileID: 11460374}
   m_Layer: 0
   m_Name: wall blueprint
   m_TagString: Untagged
@@ -29,6 +30,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11460374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5359247a2abe7c4980111321f91ee69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 111210, guid: 6c31c7dd8b171ff45b1e016417bc5707, type: 2}
 --- !u!212 &21200396
 SpriteRenderer:
   m_ObjectHideFlags: 1

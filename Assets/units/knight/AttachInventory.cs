@@ -23,7 +23,7 @@ public class AttachInventory : NetworkBehaviour
 
                 foreach (var script in enableScripts)
                 {
-                    script.inventory = GetComponent<Inventory>();
+                    script.available = GetComponent<Inventory>();
                 }
             }
         }
