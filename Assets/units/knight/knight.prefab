@@ -18,6 +18,7 @@ GameObject:
   - 114: {fileID: 11457384}
   - 114: {fileID: 11431842}
   - 114: {fileID: 11436962}
+  - 114: {fileID: 11440738}
   m_Layer: 0
   m_Name: knight
   m_TagString: Player
@@ -155,6 +156,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wood: 10
+--- !u!114 &11440738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1219183ef4d961f488bc96a0a7e07246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11457384
 MonoBehaviour:
   m_ObjectHideFlags: 1
