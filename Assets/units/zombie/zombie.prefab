@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c58b183e8c1de40a52c7f615fbde9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 126720, guid: db6a159b070aa744d99408123660afc5, type: 2}
 --- !u!212 &21267064
 SpriteRenderer:
   m_ObjectHideFlags: 1
