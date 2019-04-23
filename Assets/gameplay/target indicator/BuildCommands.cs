@@ -45,14 +45,21 @@ public class BuildCommands : NetworkBehaviour
 
         NetworkServer.Spawn(building);
 
+        GameObject followingKnight = getFollowingKnight();
+        Inventory price = buildingPrefab.GetComponent<Inventory>();
+        followingKnight.GetComponent<Inventory>().sub(price);
+    }
+
+    private GameObject getFollowingKnight()
+    {
         GameObject[] allKnights = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject knight in allKnights)
         {
             if (knight.GetComponent<FollowTransform>().target == transform)
             {
-                knight.GetComponent<Inventory>().wood--;
-                break;
+                return knight;
             }
         }
+        return null;
     }
 }

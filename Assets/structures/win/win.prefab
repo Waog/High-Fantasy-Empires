@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21203528}
   - 114: {fileID: 11447602}
   - 114: {fileID: 11453546}
+  - 114: {fileID: 11464148}
   m_Layer: 0
   m_Name: win
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11464148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295f42b9ac4d68e48bc4a96de12d8dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: 0
+  gems: 3
 --- !u!212 &21203528
 SpriteRenderer:
   m_ObjectHideFlags: 1

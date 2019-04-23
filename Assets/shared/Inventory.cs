@@ -23,4 +23,10 @@ public class Inventory : NetworkBehaviour
         wood >= price.wood
         && gems >= price.gems;
     }
+
+    internal void sub(Inventory price)
+    {
+        wood -= price.wood;
+        gems -= price.gems;
+    }
 }
